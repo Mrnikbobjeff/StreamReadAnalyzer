@@ -107,6 +107,28 @@ namespace StreamNoDiscardAnalyzer.Test
         }
 
         [TestMethod]
+        public void ReadCall_TriggersNoDiagnostic_Comparison()
+        {
+            var test = @"
+    using System;
+    using System.IO;
+
+    namespace ConsoleApplication1
+    {
+        class TypeName
+        {
+            public TypeName()
+            {
+                var ms = new MemoryStream();
+                if(x > ms.Read(new byte[1],0,1))
+                    return;
+            }
+        }
+    }";
+            VerifyCSharpDiagnostic(test);
+        }
+
+        [TestMethod]
         public void ReadCall_TriggersNoDiagnostic_CastIsCompensatedFor()
         {
             var test = @"

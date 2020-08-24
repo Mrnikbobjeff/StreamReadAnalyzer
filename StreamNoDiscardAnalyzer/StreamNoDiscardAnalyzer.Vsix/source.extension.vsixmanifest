@@ -4,10 +4,13 @@
         <Identity Id="StreamNoDiscardAnalyzer.40282cf5-c445-4966-81eb-d03d537c6ec0" Version="1.0" Language="en-US" Publisher="Niklas"/>
         <DisplayName>StreamNoDiscardAnalyzer</DisplayName>
         <Description xml:space="preserve">This analyzer checks whether the return value of System.IO.Stream read calls are ignored.</Description>
+        <MoreInfo>https://github.com/Mrnikbobjeff/StreamReadAnalyzer</MoreInfo>
         <Tags>Bugs</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,)" />
+        <InstallationTarget Version="[16.0,17.0)" Id="Microsoft.VisualStudio.Pro" />
+        <InstallationTarget Version="[16.0,17.0)" Id="Microsoft.VisualStudio.Enterprise" />
+        <InstallationTarget Version="[16.0,17.0)" Id="Microsoft.VisualStudio.Community" />
     </Installation>
     <Dependencies>
         <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />

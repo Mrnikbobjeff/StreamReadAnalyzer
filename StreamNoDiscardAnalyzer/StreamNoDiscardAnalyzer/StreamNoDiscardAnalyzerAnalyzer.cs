@@ -26,7 +26,9 @@ namespace StreamNoDiscardAnalyzer
 
         static bool HasValidParent(InvocationExpressionSyntax invocation)
         {
-            return invocation.Parent is EqualsValueClauseSyntax || invocation.Parent.Parent is EqualsValueClauseSyntax;
+            return invocation.Parent is EqualsValueClauseSyntax
+                || invocation.Parent.Parent is EqualsValueClauseSyntax
+                || invocation.Parent.Parent is IfStatementSyntax;
         }
 
         static bool IsActualReadCallOnSystemIoStreamType(IMethodSymbol methodSymbol)

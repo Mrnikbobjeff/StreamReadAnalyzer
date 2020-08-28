@@ -46,7 +46,7 @@ namespace StreamNoDiscardAnalyzer
         private static void AnalyzeSymbol(SyntaxNodeAnalysisContext context)
         {
             var invocation = context.Node as InvocationExpressionSyntax;
-            if ((invocation.Expression as MemberAccessExpressionSyntax).Name.Identifier.ValueText != "Read")
+            if ((invocation.Expression is MemberAccessExpressionSyntax memAccess) && memAccess.Name.Identifier.ValueText != "Read")
                 return; //early return for perf
             var methodSymbol = context
                                 .SemanticModel
